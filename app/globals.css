@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Monochrome theme tokens ---- */
+/* Dark mode (default): pure black bg, full-brightness white fg */
+:root,
+.dark {
+  --bg: 0 0 0;
+  --fg: 255 255 255;
+  --surface: 255 255 255; /* used with low alpha for glass */
+  --line: 255 255 255;
+  --glass-alpha: 0.05;
+  --glass-border: 0.12;
+  color-scheme: dark;
+}
+
+/* Light mode: bright white bg, pure black fg */
+.light {
+  --bg: 255 255 255;
+  --fg: 0 0 0;
+  --surface: 0 0 0;
+  --line: 0 0 0;
+  --glass-alpha: 0.04;
+  --glass-border: 0.1;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Lenis handles smooth scrolling; native smooth would fight it. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--fg) / 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--fg) / 0.6);
+}
+
+::selection {
+  background: rgb(var(--fg));
+  color: rgb(var(--bg));
+}
+
+@layer utilities {
+  /* Shimmering white→grey (mono) headline */
+  .text-shimmer {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      110deg,
+      rgb(var(--fg)) 20%,
+      rgb(var(--fg) / 0.4) 50%,
+      rgb(var(--fg)) 80%
+    );
+    background-size: 200% 100%;
+    animation: gradient-x 6s linear infinite;
+  }
+
+  .glass {
+    background: rgb(var(--surface) / var(--glass-alpha));
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+    border: 1px solid rgb(var(--surface) / var(--glass-border));
+  }
+
+  .glass-strong {
+    background: rgb(var(--surface) / calc(var(--glass-alpha) * 2));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--surface) / calc(var(--glass-border) * 1.4));
+  }
+
+  /* Monochrome glow — white in dark, subtle in light */
+  .glow {
+    box-shadow: 0 0 40px -8px rgb(var(--fg) / 0.35);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--fg) / 0.5),
+      rgb(var(--fg) / 0.05),
+      rgb(var(--fg) / 0.35)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Hide content until GSAP reveals it (avoids flash), but keep visible if JS off */
+.reveal {
+  opacity: 0;
+}
+.no-js .reveal {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+  }
+}
