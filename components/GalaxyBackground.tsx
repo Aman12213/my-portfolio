@@ -52,13 +52,14 @@ export default function GalaxyBackground() {
     };
     setup();
 
-    const STAR_COUNT = Math.min(160, Math.floor((width * height) / 11000));
+    // Subtle starfield — editorial typography leads, stars whisper behind it.
+    const STAR_COUNT = Math.min(110, Math.floor((width * height) / 16000));
     const stars: Star[] = Array.from({ length: STAR_COUNT }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       z: Math.random(),
-      r: Math.random() * 1.5 + 0.3,
-      baseAlpha: Math.random() * 0.6 + 0.25,
+      r: Math.random() * 1.3 + 0.3,
+      baseAlpha: Math.random() * 0.35 + 0.12,
       twinkle: Math.random() * Math.PI * 2,
     }));
 
@@ -93,7 +94,7 @@ export default function GalaxyBackground() {
 
       // faint drifting light clouds (mono)
       const t = frame * 0.0016;
-      const cloudA = c === 255 ? 0.05 : 0.03;
+      const cloudA = c === 255 ? 0.035 : 0.02;
       cloud(
         width * (0.25 + Math.sin(t) * 0.05) - mouse.current.x * 40,
         height * (0.3 + Math.cos(t * 0.8) * 0.05) - mouse.current.y * 40,

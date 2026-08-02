@@ -9,12 +9,14 @@ export default function Reveal({
   y = 40,
   className,
   as = "div",
+  variant = "fade",
 }: {
   children: ReactNode;
   delay?: number;
   y?: number;
   className?: string;
   as?: ElementType;
+  variant?: "fade" | "card";
 }) {
   const ref = useRef<HTMLElement>(null);
   const Comp = as as ElementType;
@@ -27,22 +29,22 @@ export default function Reveal({
       return;
     }
     const ctx = gsap.context(() => {
-      // opacity + transform only — compositor-friendly, no layout/filter cost
-      gsap.fromTo(
-        el,
-        { opacity: 0, y, force3D: true },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          delay: delay * 0.08,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 88%", once: true },
-        }
-      );
+      const from =
+        variant === "card"
+          ? { opacity: 0, y: y + 20, scale: 0.94, force3D: true }
+          : { opacity: 0, y, force3D: true };
+      gsap.fromTo(el, from, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: variant === "card" ? 0.95 : 0.8,
+        delay: delay * 0.09,
+        ease: variant === "card" ? "back.out(1.4)" : "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      });
     }, el);
     return () => ctx.revert();
-  }, [delay, y]);
+  }, [delay, y, variant]);
 
   return (
     <Comp ref={ref} className={`reveal ${className ?? ""}`}>

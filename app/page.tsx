@@ -3,15 +3,15 @@ import SmoothScroll from "@/components/SmoothScroll";
 import CursorGlow from "@/components/CursorGlow";
 import ScrollProgress from "@/components/ScrollProgress";
 import Preloader from "@/components/Preloader";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
+import EditorialNav from "@/components/EditorialNav";
+import HeroEditorial from "@/components/HeroEditorial";
+import AboutEditorial from "@/components/AboutEditorial";
+import ProjectsList from "@/components/ProjectsList";
+import ExperienceList from "@/components/ExperienceList";
+import SkillsEditorial from "@/components/SkillsEditorial";
 import Marquee from "@/components/Marquee";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
+import ContactFooter from "@/components/ContactFooter";
 
 export default function Home() {
   return (
@@ -21,19 +21,19 @@ export default function Home() {
       <GalaxyBackground />
       <CursorGlow />
       <ScrollProgress />
-      <Navbar />
+      <EditorialNav />
 
       <main className="relative">
-        <Hero />
-        <About />
-        <Skills />
+        <HeroEditorial />
+        <AboutEditorial />
+        <ProjectsList />
+        <ExperienceList />
+        <SkillsEditorial />
         <Marquee />
-        <Experience />
-        <Projects />
-        <Contact />
+        <Testimonials />
       </main>
 
-      <Footer />
+      <ContactFooter />
     </>
   );
 }

@@ -98,6 +98,33 @@ body {
     box-shadow: 0 0 40px -8px rgb(var(--fg) / 0.35);
   }
 
+  /* Editorial line-mask reveal (framer-style) */
+  .mask-line {
+    overflow: hidden;
+    display: block;
+  }
+  .mask-inner {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  .serif-italic {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(rgb(var(--fg)), rgb(var(--fg)));
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
   .gradient-border {
     position: relative;
   }

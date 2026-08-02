@@ -13,6 +13,57 @@ export const PROFILE = {
   },
 };
 
+// Hero headline split into lines. { t } = normal, { i } = italic serif accent word.
+export const HERO_LINES: { t?: string; i?: string }[] = [
+  { t: "Engineering backends" },
+  { t: "that scale clean," },
+  { t: "integrate anything," },
+  { t: "and ", i: "think" },
+];
+export const HERO_LAST = " with AI.";
+
+export const HERO_INTRO =
+  "I'm Aman Singh Bisht, a Backend & AI Engineer from India. Over 2+ years I've shipped 25+ projects — scalable APIs, complex third-party integrations, and production AI systems with RAG, agents, and LLMs.";
+
+export const ABOUT_PARAGRAPHS = [
+  "I design and build scalable backend systems, complex API integrations, automation, and AI-powered products. I started as a backend intern at Fonix Technology and grew into a Senior AI Engineer — moving from Node.js and Laravel into Python, FastAPI, and LangChain.",
+  "I care about the stuff users never see but always feel: clean architecture, reliable integrations, and systems that just work at scale. Lately I build RAG assistants, autonomous agents, and LLM services on top of solid backend foundations.",
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+};
+
+// NOTE: replace these with real client/colleague quotes when you have them.
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote:
+      "Aman turns vague requirements into clean, reliable backends fast. Our third-party integrations finally just worked.",
+    name: "Project Manager",
+    role: "Fonix Technology",
+  },
+  {
+    quote:
+      "He built our AI chatbot and RAG pipeline end-to-end. Sharp engineer who understands both the backend and the AI side.",
+    name: "Team Lead",
+    role: "Client Project",
+  },
+  {
+    quote:
+      "Strong system-design sense and great with APIs. Aman shipped features quickly without cutting corners on quality.",
+    name: "Senior Developer",
+    role: "Fonix Technology",
+  },
+  {
+    quote:
+      "From WhatsApp automation to multi-dashboard platforms, he delivered on time and made complex things look simple.",
+    name: "Product Owner",
+    role: "Healthcare Platform",
+  },
+];
+
 export const STATS = [
   { value: 2, suffix: "+", label: "Years Experience" },
   { value: 25, suffix: "+", label: "Projects Shipped" },
@@ -25,17 +76,17 @@ export const SKILL_GROUPS = [
     category: "Backend",
     icon: "Server",
     skills: [
-      "Node.js", "Python", "FastAPI", "Express.js", "REST API", "Microservices",
-      "WebSockets", "JWT / OAuth", "Redis", "Queues", "Cron Jobs",
-      "Event-Driven Architecture",
+      "Node.js", "Express.js", "PHP", "Laravel", "Python", "FastAPI", "REST API",
+      "Microservices", "WebSockets", "Socket.io", "JWT / OAuth", "Nodemailer",
+      "Redis", "Queues", "Event-Driven Architecture",
     ],
   },
   {
     category: "AI & LLMs",
     icon: "Brain",
     skills: [
-      "OpenAI", "Anthropic Claude", "Google Gemini", "LangChain", "LangGraph",
-      "CrewAI", "RAG", "Embeddings", "Pinecone", "Qdrant", "AI Agents",
+      "OpenAI", "Anthropic Claude", "Google Gemini", "LangChain", "RAG",
+      "Embeddings", "Vector Databases", "Pinecone", "Qdrant", "AI Agents",
       "Function Calling", "MCP", "Agentic Workflows",
     ],
   },
@@ -50,85 +101,101 @@ export const SKILL_GROUPS = [
   {
     category: "Database",
     icon: "Database",
-    skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Prisma", "Mongoose"],
+    skills: ["MongoDB", "PostgreSQL", "MySQL", "Supabase", "Redis", "Mongoose"],
   },
 ];
 
 export const EXPERIENCE = [
   {
-    role: "Backend & AI Engineer",
-    company: "Fonix Tech",
-    period: "2023 — Present",
+    role: "Backend Developer — Intern",
+    company: "Fonix Technology",
+    period: "Sep 2024 — Mar 2025",
     description:
-      "Design event-driven backends and production AI systems — building autonomous agents, RAG pipelines, and complex third-party integrations for high-traffic products.",
+      "Started as a backend intern, building REST APIs and web platforms with Node.js and Laravel while learning production engineering.",
     achievements: [
-      "Built an agentic AI platform orchestrating multi-step tool-calling workflows",
-      "Cut API latency ~40% with queue-based event processing",
-      "Shipped 15+ third-party integrations (payments, messaging, voice)",
+      "Built REST APIs with Node.js (Express) and Laravel",
+      "Worked with MySQL & MongoDB for data modelling",
+      "Shipped features into live production web platforms",
     ],
   },
   {
     role: "Backend Developer",
-    company: "Product Studio",
-    period: "2022 — 2023",
+    company: "Fonix Technology",
+    period: "Apr 2025 — Sep 2025",
     description:
-      "Built scalable REST APIs, real-time WebSocket systems, and automation for SaaS products.",
+      "Moved full-time into backend — owning third-party API integrations, chatbots, real-time systems, and automation for client products.",
     achievements: [
-      "Built real-time notification & chat systems on WebSockets",
-      "Implemented OAuth2 & JWT auth across a microservices fleet",
-      "Delivered WhatsApp & Telegram automation bots at scale",
+      "Integrated third-party APIs (WhatsApp, Meta Ads, payments)",
+      "Built chatbots, webhooks, and automation flows",
+      "Added JWT/OAuth auth and real-time chat with Socket.io",
+    ],
+  },
+  {
+    role: "Senior AI Engineer",
+    company: "Fonix Technology",
+    period: "Oct 2025 — Present",
+    description:
+      "Grew into AI engineering — designing production AI systems with Python, FastAPI, and LangChain: RAG assistants, embeddings, and autonomous agents.",
+    achievements: [
+      "Built RAG assistants over private business documents",
+      "Developed AI agents & agentic workflows (OpenAI, Claude)",
+      "Shipped LLM services with Python, FastAPI & vector databases",
     ],
   },
 ];
 
-export const PROJECTS = [
+export type Project = {
+  title: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  url: string;
+  links?: { label: string; href: string }[];
+};
+
+export const PROJECTS: Project[] = [
   {
-    title: "AI Voice Assistant",
-    tagline: "Real-time speech-to-speech agent",
+    title: "HPIT Inc — Corporate Site + AI Chatbot",
+    tagline: "Company website & support AI",
     description:
-      "Low-latency voice agent with streaming STT, LLM reasoning, tool-calling, and TTS. Sub-second turn-taking over WebSockets.",
-    tech: ["Node.js", "OpenAI", "WebSockets", "STT/TTS", "Redis"],
+      "A corporate website (Accenture-style) with an integrated AI chatbot that answers visitor questions about the company's services, powered by OpenAI and Claude.",
+    tech: ["Node.js", "MySQL", "OpenAI", "Claude", "JWT"],
+    url: "https://hpit-inc.com/",
   },
   {
-    title: "AI Agent Platform",
-    tagline: "Autonomous multi-agent orchestration",
+    title: "DogPro AI Knowledge Assistant",
+    tagline: "RAG chatbot over business docs",
     description:
-      "A platform to build, run, and monitor autonomous agents with memory, function calling, and MCP-based tool integrations.",
-    tech: ["LangGraph", "CrewAI", "FastAPI", "Qdrant", "MCP"],
+      "A ChatGPT-style assistant where admins upload documents and users get instant, grounded answers about the business. Uses embeddings + RAG so the bot retrieves the right knowledge before replying.",
+    tech: ["Node.js", "OpenAI", "Supabase", "Embeddings", "RAG"],
+    url: "https://ask.dogprosolutions.co.uk/",
   },
   {
-    title: "RAG Search Engine",
-    tagline: "Semantic search over knowledge bases",
+    title: "Agapecure — Healthcare Platform",
+    tagline: "Multi-dashboard appointments system",
     description:
-      "Hybrid retrieval with embeddings + reranking, chunking strategies, and citation-grounded answers over private data.",
-    tech: ["Embeddings", "Pinecone", "LangChain", "Postgres", "Next.js"],
+      "A healthcare platform to book doctors, diagnostics, and hospitals, with role-based dashboards for hospital, doctor, diagnostic, admin, and super-admin. Integrates WhatsApp for notifications and Meta Ads for campaigns.",
+    tech: ["Node.js", "MySQL", "WhatsApp API", "Meta Ads API", "JWT"],
+    url: "https://agapecure.in/",
   },
   {
-    title: "WhatsApp Automation Platform",
-    tagline: "Messaging automation at scale",
+    title: "MeMarathi Platform",
+    tagline: "Community · Jobs · Matrimony",
     description:
-      "Event-driven WhatsApp automation with queues, templated flows, webhooks, and delivery tracking for thousands of conversations.",
-    tech: ["Node.js", "WhatsApp API", "Redis", "Queues", "MongoDB"],
-  },
-  {
-    title: "Home Service Marketplace",
-    tagline: "Two-sided platform backend",
-    description:
-      "Booking, matching, payments, and real-time tracking for a services marketplace with a microservices backend.",
-    tech: ["Node.js", "MongoDB", "Stripe", "WebSockets", "Docker"],
-  },
-  {
-    title: "LLM Chat Platform",
-    tagline: "Multi-model conversational app",
-    description:
-      "Streaming chat across OpenAI, Claude, and Gemini with memory, tools, and per-user rate limiting and analytics.",
-    tech: ["Next.js", "Claude", "Gemini", "Redis", "Prisma"],
+      "A three-vertical platform — a social community with real-time chat, a jobs portal, and a matrimony site — built end-to-end on Laravel with MySQL. The community app uses Socket.io for live messaging.",
+    tech: ["Laravel", "MySQL", "Socket.io", "PHP", "JWT"],
+    url: "https://community.memarathi.com/",
+    links: [
+      { label: "Community", href: "https://community.memarathi.com/" },
+      { label: "Jobs", href: "https://jobs.memarathi.com/" },
+      { label: "Matrimony", href: "https://matrimony.memarathi.com/" },
+    ],
   },
 ];
 
 export const TECH_MARQUEE = [
-  "Node.js", "Python", "FastAPI", "Express.js", "REST API", "MongoDB",
-  "PostgreSQL", "MySQL", "Redis", "Docker", "LangChain", "OpenAI",
-  "Anthropic", "Pinecone", "Qdrant", "Next.js", "React", "Redux",
-  "Tailwind CSS", "Bootstrap", "Shadcn UI", "JavaScript", "MCP", "WebSockets",
+  "Node.js", "Express.js", "PHP", "Laravel", "Python", "FastAPI", "MySQL",
+  "MongoDB", "PostgreSQL", "Supabase", "Redis", "Socket.io", "OpenAI",
+  "Anthropic", "LangChain", "Pinecone", "Qdrant", "React", "Next.js",
+  "Redux", "Tailwind CSS", "Bootstrap", "Docker", "JWT",
 ];
