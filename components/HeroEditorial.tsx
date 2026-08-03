@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
 import { HERO_LINES, HERO_LAST, HERO_INTRO, PROFILE } from "@/lib/data";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import MaskLines from "./MaskLines";
@@ -90,6 +90,15 @@ export default function HeroEditorial() {
                 className="flex items-center gap-2 rounded-full border border-fg/20 px-6 py-3 text-sm font-medium text-fg/80 transition-colors hover:border-fg/60 hover:text-fg"
               >
                 View Work <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </MagneticButton>
+            <MagneticButton>
+              <a
+                href={PROFILE.resume}
+                download
+                className="flex items-center gap-2 rounded-full border border-fg/20 px-6 py-3 text-sm font-medium text-fg/80 transition-colors hover:border-fg/60 hover:text-fg"
+              >
+                Download CV <Download className="h-4 w-4" />
               </a>
             </MagneticButton>
           </div>

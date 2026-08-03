@@ -19,11 +19,8 @@ export default function SkillsEditorial() {
               </h3>
               <ul className="space-y-2">
                 {group.skills.map((s) => (
-                  <li
-                    key={s}
-                    className="link-underline inline-block cursor-default text-sm text-fg/55 hover:text-fg"
-                  >
-                    {s}
+                  <li key={s} className="text-sm text-fg/55">
+                    <span className="link-underline cursor-default hover:text-fg">{s}</span>
                   </li>
                 ))}
               </ul>

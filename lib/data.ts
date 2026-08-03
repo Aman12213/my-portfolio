@@ -5,6 +5,7 @@ export const PROFILE = {
   location: "India",
   experience: "2+ Years",
   email: "animegoku1010@gmail.com",
+  resume: "/Aman-Singh-Bisht-Resume.pdf",
   bio: "I build scalable backend systems, complex API integrations, automation systems, and AI-powered products. I love turning hard engineering problems into products that scale.",
   socials: {
     github: "https://github.com/AmanFonix",
@@ -154,6 +155,14 @@ export type Project = {
 };
 
 export const PROJECTS: Project[] = [
+  {
+    title: "The Storage Marketplace",
+    tagline: "Self-storage marketplace + AI",
+    description:
+      "A self-storage marketplace with an AI chatbot that answers customer questions, plus AI that summarizes listing videos by category. Built on Node.js and MySQL with OpenAI powering the chat and video summarization.",
+    tech: ["Node.js", "MySQL", "OpenAI", "AI Chatbot", "Video Summarization"],
+    url: "https://thestoragemarketplace.com",
+  },
   {
     title: "HPIT Inc — Corporate Site + AI Chatbot",
     tagline: "Company website & support AI",

@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Download } from "lucide-react";
 import { gsap } from "@/lib/gsap";
+import { PROFILE } from "@/lib/data";
 import ThemeToggle from "./ThemeToggle";
 
 const LINKS = [
@@ -56,10 +58,11 @@ export default function EditorialNav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
-            className="hidden rounded-full border border-fg/20 px-4 py-1.5 text-sm text-fg/80 transition-colors hover:border-fg/60 hover:text-fg sm:block"
+            href={PROFILE.resume}
+            download
+            className="hidden items-center gap-1.5 rounded-full border border-fg/20 px-4 py-1.5 text-sm text-fg/80 transition-colors hover:border-fg/60 hover:text-fg sm:flex"
           >
-            Let&apos;s talk
+            Resume <Download className="h-3.5 w-3.5" />
           </a>
           <ThemeToggle />
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { PROFILE } from "@/lib/data";
 import MaskLines from "./MaskLines";
 import MagneticButton from "./MagneticButton";
@@ -30,14 +30,25 @@ export default function ContactFooter() {
               Have a project, a role, or an idea? I&apos;m open to full-time roles, freelance work, and
               collaborations.
             </p>
-            <MagneticButton>
-              <a
-                href={PROFILE.socials.email}
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-90"
-              >
-                {PROFILE.email} <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </MagneticButton>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <MagneticButton>
+                <a
+                  href={PROFILE.socials.email}
+                  className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-90"
+                >
+                  {PROFILE.email} <ArrowUpRight className="h-4 w-4" />
+                </a>
+              </MagneticButton>
+              <MagneticButton>
+                <a
+                  href={PROFILE.resume}
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-fg/20 px-6 py-3 text-sm font-medium text-fg/80 transition-colors hover:border-fg/60 hover:text-fg"
+                >
+                  Download Resume <Download className="h-4 w-4" />
+                </a>
+              </MagneticButton>
+            </div>
           </div>
 
           <div className="flex gap-3">
