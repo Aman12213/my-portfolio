@@ -2,37 +2,44 @@
 
 import { ArrowUpRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import { PROFILE } from "@/lib/data";
-import MaskLines from "./MaskLines";
 import MagneticButton from "./MagneticButton";
 
 export default function ContactFooter() {
   return (
-    <footer id="contact" className="relative overflow-hidden border-t border-fg/10 px-6 pb-12 pt-28">
-      <div className="pointer-events-none absolute -bottom-48 left-1/2 h-96 w-[130%] -translate-x-1/2 rounded-[50%] bg-fg/[0.06] blur-3xl" />
+    // data-mc-final: once this section is built, the cursor crew takes a bow and leaves.
+    <footer id="contact" data-mc-final className="relative overflow-hidden px-6 pb-12 pt-28">
+      <span data-mc="line" aria-hidden className="absolute inset-x-0 top-0 h-px bg-fg/10" />
+      <div
+        data-mc="pop"
+        data-mc-fx="bloom"
+        data-mc-at="0.5,0.3"
+        className="pointer-events-none absolute -bottom-48 left-1/2 h-96 w-[130%] -translate-x-1/2 rounded-[50%] bg-fg/[0.06] blur-3xl"
+      />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="mb-6 font-display text-xs uppercase tracking-[0.25em] text-fg/50">
+        <p data-mc="type" className="mb-6 font-display text-xs uppercase tracking-[0.25em] text-fg/50">
           <span className="text-fg/40">©</span> Contact | Let&apos;s Build
         </p>
 
-        <MaskLines className="font-display text-[13vw] font-semibold leading-[0.95] tracking-tight text-fg sm:text-7xl md:text-8xl">
-          {[
-            <span key="1">Let&apos;s work</span>,
-            <span key="2">
-              together<span className="serif-italic"> →</span>
-            </span>,
-          ]}
-        </MaskLines>
+        <h2 className="font-display text-[13vw] font-semibold leading-[0.95] tracking-tight text-fg sm:text-7xl md:text-8xl">
+          <span data-mc="type" className="block">
+            Let&apos;s work
+          </span>
+          <span data-mc="type" className="block">
+            together<span className="serif-italic"> →</span>
+          </span>
+        </h2>
 
         <div className="mt-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="max-w-md text-fg/55">
+            <p data-mc="type" className="max-w-md text-fg/55">
               Have a project, a role, or an idea? I&apos;m open to full-time roles, freelance work, and
               collaborations.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <MagneticButton>
                 <a
+                  data-mc="pop"
                   href={PROFILE.socials.email}
                   className="inline-flex items-center gap-2 rounded-full bg-fg px-6 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-90"
                 >
@@ -41,6 +48,7 @@ export default function ContactFooter() {
               </MagneticButton>
               <MagneticButton>
                 <a
+                  data-mc="pop"
                   href={PROFILE.resume}
                   download
                   className="inline-flex items-center gap-2 rounded-full border border-fg/20 px-6 py-3 text-sm font-medium text-fg/80 transition-colors hover:border-fg/60 hover:text-fg"
@@ -59,6 +67,7 @@ export default function ContactFooter() {
             ].map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
+                data-mc="pop"
                 href={href}
                 aria-label={label}
                 target="_blank"
@@ -71,12 +80,13 @@ export default function ContactFooter() {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-fg/10 pt-6 text-sm text-fg/40 sm:flex-row">
-          <span>© 2026 Aman Singh Bisht</span>
-          <a href="#home" className="link-underline hover:text-fg">
+        <div className="relative mt-20 flex flex-col items-center justify-between gap-4 pt-6 text-sm text-fg/40 sm:flex-row">
+          <span data-mc="line" aria-hidden className="absolute inset-x-0 top-0 h-px bg-fg/10" />
+          <span data-mc="type">© 2026 Aman Singh Bisht</span>
+          <a data-mc="type" href="#home" className="link-underline hover:text-fg">
             Back to top ↑
           </a>
-          <span>Backend · AI · Integrations</span>
+          <span data-mc="type">Backend · AI · Integrations</span>
         </div>
       </div>
     </footer>

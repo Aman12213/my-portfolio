@@ -2,7 +2,6 @@ import GalaxyBackground from "@/components/GalaxyBackground";
 import SmoothScroll from "@/components/SmoothScroll";
 import CursorGlow from "@/components/CursorGlow";
 import ScrollProgress from "@/components/ScrollProgress";
-import Preloader from "@/components/Preloader";
 import EditorialNav from "@/components/EditorialNav";
 import HeroEditorial from "@/components/HeroEditorial";
 import AboutEditorial from "@/components/AboutEditorial";
@@ -12,11 +11,11 @@ import SkillsEditorial from "@/components/SkillsEditorial";
 import Marquee from "@/components/Marquee";
 import Testimonials from "@/components/Testimonials";
 import ContactFooter from "@/components/ContactFooter";
+import CursorCrew from "@/components/CursorCrew";
 
 export default function Home() {
   return (
     <>
-      <Preloader />
       <SmoothScroll />
       <GalaxyBackground />
       <CursorGlow />
@@ -34,6 +33,9 @@ export default function Home() {
       </main>
 
       <ContactFooter />
+
+      {/* Five cursors build everything marked data-mc, live, as you scroll. */}
+      <CursorCrew />
     </>
   );
 }

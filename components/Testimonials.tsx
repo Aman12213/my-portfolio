@@ -25,7 +25,7 @@ export default function Testimonials() {
         <SectionLabel left="Testimonials" right="Kind Words" />
       </div>
 
-      <div className="relative overflow-hidden">
+      <div data-mc="draw" className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-bg to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-bg to-transparent" />
         <div className="flex w-max gap-5 pl-6">

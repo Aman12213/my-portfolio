@@ -38,6 +38,10 @@ export const metadata: Metadata = {
 
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`;
 
+// Hides [data-mc] content before first paint so the cursor crew can build it.
+// If the crew hasn't started within 6s (JS error, slow device), show everything.
+const crewScript = `(function(){try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;var d=document.documentElement;d.classList.add('mc');setTimeout(function(){if(!window.__mcAlive)d.classList.remove('mc');},6000);}catch(e){}})();`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -47,8 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: crewScript }} />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="relative font-sans antialiased">{children}</body>
     </html>
   );
 }

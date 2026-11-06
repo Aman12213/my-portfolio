@@ -164,5 +164,5 @@ export default function GalaxyBackground() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} aria-hidden className="fixed inset-0 -z-10 h-full w-full" />;
+  return <canvas ref={canvasRef} aria-hidden className="mc-bg fixed inset-0 -z-10 h-full w-full" />;
 }
