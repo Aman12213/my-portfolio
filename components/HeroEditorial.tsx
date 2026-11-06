@@ -45,6 +45,8 @@ export default function HeroEditorial() {
 
         {/* One typing job per line, so several cursors write the headline at once. */}
         <h1 className="font-display text-[13vw] font-semibold leading-[0.98] tracking-tight text-fg sm:text-7xl md:text-8xl lg:text-[6.5rem]">
+          {/* Names the page for search engines and screen readers. */}
+          <span className="sr-only">Aman Singh Bisht — Backend Developer &amp; AI Engineer. </span>
           {HERO_LINES.map((l, i) => (
             <span key={i} data-mc="type" className="block">
               {l.t}

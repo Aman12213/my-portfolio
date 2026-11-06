@@ -24,7 +24,7 @@ export const HERO_LINES: { t?: string; i?: string }[] = [
 export const HERO_LAST = " with AI.";
 
 export const HERO_INTRO =
-  "I'm Aman Singh Bisht, a Backend & AI Engineer from India. Over 2+ years I've shipped 25+ projects — scalable APIs, complex third-party integrations, and production AI systems with RAG, agents, and LLMs.";
+  "I'm Aman Singh Bisht, a Backend & AI Engineer at Fonix Technology, India. Over 2+ years I've shipped 25+ projects — scalable APIs, complex third-party integrations, and production AI systems with RAG, agents, and LLMs.";
 
 export const ABOUT_PARAGRAPHS = [
   "I design and build scalable backend systems, complex API integrations, automation, and AI-powered products. I started as a backend intern at Fonix Technology and grew into a Senior AI Engineer — moving from Node.js and Laravel into Python, FastAPI, and LangChain.",
